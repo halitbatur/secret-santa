@@ -7,6 +7,7 @@ function SecretSanta() {
         email:"",
         name:""
     });
+    const [password,setPassword] = React.useState()
 
     const handleButtonClick = (e) => {
         e.preventDefault()
@@ -15,6 +16,10 @@ function SecretSanta() {
     };
 
     const sendEmails = () => {
+        if(password !== "istanbul2k21secretsanta"){
+            window.alert("Wrong password")
+            return
+        }
         let newSantas = []
         const santasCopy = [...secretSantas];
         if(secretSantas.length === 1){
@@ -31,12 +36,11 @@ function SecretSanta() {
             newSantas.push({email:secretSantas[i].email,secretSanta:randomSanta.name})
             santasCopy.splice(randomIndex,1);
         }
-        console.log(newSantas)
-        
         newSantas.forEach(person => {
         window.Email.send({
         Host : "smtp.elasticemail.com",
-        SecureToken : "8fbb4b80-f4e9-404a-9ef5-1a811a025ce0",
+        Username:"halitfuatbatur@gmail.com",
+        Password:"B661DB3F65D33FA31A24C73028A859FB9AC5",
         To : `${person.email}`,
         From : "halitfuatbatur@gmail.com",
         Subject : "SECRET SANTA ISTANBUL 2021",
@@ -82,6 +86,7 @@ function SecretSanta() {
             </div>
                  
                 </Row>
+                <Form.Control type="password" placeholder="password" value={password} onChange={(e) => setPassword(e.target.value)} style={{ width:"300px",margin:"auto"}}/>
                 <Button onClick={() => {sendEmails()}}>SEND EMAILS</Button>
             </Container>
     )
