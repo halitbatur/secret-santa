@@ -17,6 +17,10 @@ function SecretSanta() {
     const sendEmails = () => {
         let newSantas = []
         const santasCopy = [...secretSantas];
+        if(secretSantas.length === 1){
+            window.alert("Please Enter more than 1 person");
+            return;
+        }
         for(let i = 0; i < secretSantas.length; i++){
         const randomIndex = Math.floor((Math.random() * santasCopy.length))
         const randomSanta = santasCopy[randomIndex];
