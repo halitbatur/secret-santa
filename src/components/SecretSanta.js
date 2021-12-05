@@ -16,7 +16,7 @@ function SecretSanta() {
     };
 
     const sendEmails = () => {
-        if(password !== "istanbul2k21secretsanta"){
+        if(password !== process.env.VERIFICATION){
             window.alert("Wrong password")
             return
         }
@@ -39,8 +39,8 @@ function SecretSanta() {
         newSantas.forEach(person => {
         window.Email.send({
         Host : "smtp.elasticemail.com",
-        Username:"halitfuatbatur@gmail.com",
-        Password:"B661DB3F65D33FA31A24C73028A859FB9AC5",
+        Username:process.env.USERNAME,
+        Password:process.env.PASSWORD,
         To : `${person.email}`,
         From : "halitfuatbatur@gmail.com",
         Subject : "SECRET SANTA ISTANBUL 2021",
