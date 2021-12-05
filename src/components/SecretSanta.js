@@ -32,13 +32,12 @@ function SecretSanta() {
         newSantas.forEach(person => {
         window.Email.send({
         Host : "smtp.elasticemail.com",
-        Username : "halitfuatbatur@gmail.com",
-        Password : "B661DB3F65D33FA31A24C73028A859FB9AC5",
+        SecureToken : "8fbb4b80-f4e9-404a-9ef5-1a811a025ce0",
         To : `${person.email}`,
         From : "halitfuatbatur@gmail.com",
-        Subject : "testest",
-        Body : `you are ${person.secretSanta}'s secret Santa ENJOOY `
-        }).then(() => window.alert("sent"))
+        Subject : "SECRET SANTA ISTANBUL 2021",
+        Body : `<h2>You are ${person.secretSanta}'s secret Santa ENJOOY</h2>`
+        }).then(() => window.alert(`an email was sent to ${person.email}`))
         })
     }
 
